@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.xml.pojo.OOStudent" table="oostudent">
+
+<id name="studentId" column="studentid" >
+<generator class="foreign">
+<param name="property">addressid</param>
+</generator>
+</id>
+<property name="studentName" column="studentname" length="10"/>
+<one-to-one name="address" class="com.xml.pojo.OOAddress"
+			constrained="true"></one-to-one>
+
+</class>
+</hibernate-mapping>

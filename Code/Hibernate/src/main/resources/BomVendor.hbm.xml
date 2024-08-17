@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.xml.pojo.BomVendor" table="Bomvendor">
+
+<id name="vendorId" column="vendid"  />
+<property name="vendorName" column="vendname" length="10"/>
+<!-- 
+Here we are writing one new attribute inverse=”true” , means we are intimating to hibernate that we are doing Bi Directional operation
+But default value of inverse=”false“ -->
+
+<set name="children" cascade="all" inverse="true">
+
+<key column="forevenid" />
+<one-to-many class="com.xml.pojo.BomCustomer" />
+
+</set>
+
+</class>
+</hibernate-mapping>

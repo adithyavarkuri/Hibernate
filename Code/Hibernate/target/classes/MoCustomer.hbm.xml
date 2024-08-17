@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.xml.pojo.MoCustomer" table="Mocustomer">
+
+<id name="customerId" column="custid"  />
+<property name="customerName" column="custname" length="10"/>
+<many-to-one name="parentObjects" column="Vdummy" class="com.xml.pojo.MoVendor" cascade="all" />
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.xml.pojo.Product" table="products">
+
+<composite-id>
+<key-property name="productId" column="pid"  />
+<key-property name="proName" column="pname" length="10" />
+</composite-id>
+
+<property name="price"/>
+
+
+</class>
+
+<!-- for named query -->
+<sql-query name="sampleNamedQuery">
+    select * from PRODUCTS
+</sql-query>
+
+<!-- for HQl query -->
+<query name="Myquery">
+<![CDATA[from Product p where p.price>:java4s ]]>
+</query>
+</hibernate-mapping>
